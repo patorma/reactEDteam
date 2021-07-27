@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import Cupcake from "./Cupcake";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+import blue from './img/blue2.jpg'
+import rose from './img/rose2.jpg'
+
+
+const App = () => (
+    <div className="container">
+      <Cupcake color="rosa" sabor="vainilla" foto={rose} />
+      <Cupcake color="azul" sabor="chocolate" foto={blue} />
+      <Cupcake color="rosa" sabor="vainilla"  foto={rose}/>
+      <Cupcake color="azul" sabor="chocolate" foto={blue} />
+      <Cupcake color="rosa" sabor="vainilla"  foto={rose} />
+      <Cupcake color="azul" sabor="chocolate" foto={blue} />
+      <Cupcake color="rosa" sabor="vainilla"  foto={rose} />
+      <Cupcake color="azul" sabor="chocolate" foto={blue} />
+      <Cupcake color="rosa" sabor="vainilla"  foto={rose}/>
+      <Cupcake color="azul" sabor="chocolate" foto={blue} />
     </div>
   );
-}
+
 
 export default App;
