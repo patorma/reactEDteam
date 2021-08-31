@@ -1,4 +1,11 @@
+import { useState } from "react";
+
 const Cupcake = ({foto,color,sabor}) => {
+  // se van a declarar dos variables que son devueltas por useState(devuelve un array)
+  //primer parametro estado y segundo parametro funcion para modificar el estado
+  // y es igual a lo que me devuelva useState 
+  //  useState recibe como parametro el valor inicial o por defecto de mi componente
+  const [vendido,setVendido] =  useState(false)
   // componente sin estado stateless
   const vender = () => console.log('Vendido!!')
   return (
