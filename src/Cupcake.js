@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import './Cupcake.css'
 
 const Cupcake = ({foto,color,sabor}) => {
   // se van a declarar dos variables que son devueltas por useState(devuelve un array)
@@ -7,7 +8,11 @@ const Cupcake = ({foto,color,sabor}) => {
   //  useState recibe como parametro el valor inicial o por defecto de mi componente
   const [vendido,setVendido] =  useState(false)
   // componente sin estado stateless
-  const vender = () => console.log('Vendido!!')
+  //recibe el nuevo valor que tendra vendido
+  const vender = () => setVendido(true)
+    
+    
+  
   return (
     <div className="cupcake" id="test">
       {color === "azul" ? (
@@ -23,11 +28,14 @@ const Cupcake = ({foto,color,sabor}) => {
         <b>Estado: </b>
         {vendido ? "Vendido" : "A la venta"}
       </p>
-      {!vendido && (
-        <button id="botonVender" onClick={vender}>
+      <p>
+         {!vendido && (
+        <button id="botonVender" onClick={vender} className="botonVender">
           Vender
         </button>
       )}
+      </p>
+     
     </div>
   );
 };

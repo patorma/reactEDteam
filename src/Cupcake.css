@@ -7,18 +7,28 @@
 
 .cupcake {
     display: inline-block;
-    margin: 20px 15px 10px 9px;
+    margin: 10px 15px ;
 }
 
-.cupcake>.cake {
+.cupcake .cake {
+    height: 200px;
     width: 200px;
-    height: 300px;
+    margin: 10px 5px 20px;
+
 }
 
-.cupcake>.cakeRose {
-    width: 300px;
-    height: 300px;
+.cupcake .cakeRose {
+    height: 200px;
+    width: 200px;
+    margin: 10px 5px 20px;
+ 
 }
+
+ /* .botonVender{
+    margin-top: 10px;
+ 
+} */
+
 
 
 /* .titulo2 {

@@ -2,6 +2,7 @@ import Cupcake from "./Cupcake";
 
 import blue from './img/blue2.jpg'
 import rose from './img/rose2.jpg'
+//import './App.css'
 
 
 const App = () => (
