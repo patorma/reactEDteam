@@ -1,6 +1,6 @@
 import Cupcake from "./Cupcake";
 
-import blue from './img/blue2.jpg'
+// import blue from './img/blue2.jpg'
 import rose from './img/rose2.jpg'
 //import './App.css'
 
@@ -8,7 +8,7 @@ import rose from './img/rose2.jpg'
 const App = () => (
     <div className="container">
       <Cupcake color="rosa" sabor="vainilla" foto={rose} />
-      <Cupcake color="azul" sabor="chocolate" foto={blue} />
+      {/* <Cupcake color="azul" sabor="chocolate" foto={blue} />
       <Cupcake color="rosa" sabor="vainilla"  foto={rose}/>
       <Cupcake color="azul" sabor="chocolate" foto={blue} />
       <Cupcake color="rosa" sabor="vainilla"  foto={rose} />
@@ -16,7 +16,7 @@ const App = () => (
       <Cupcake color="rosa" sabor="vainilla"  foto={rose} />
       <Cupcake color="azul" sabor="chocolate" foto={blue} />
       <Cupcake color="rosa" sabor="vainilla"  foto={rose}/>
-      <Cupcake color="azul" sabor="chocolate" foto={blue} />
+      <Cupcake color="azul" sabor="chocolate" foto={blue} /> */}
     </div>
   );
 
