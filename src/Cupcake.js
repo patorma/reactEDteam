@@ -7,18 +7,26 @@ const Cupcake = ({foto,color,sabor}) => {
   // y es igual a lo que me devuelva useState 
   //  useState recibe como parametro el valor inicial o por defecto de mi componente
   const [vendido,setVendido] =  useState(false)
+  const [reservado,setReservado] =  useState(false)
   // componente sin estado stateless
   //recibe el nuevo valor que tendra vendido
-  const vender = () => setVendido(true)
-
+  const vender = () => {
+    setVendido(true)
+    setReservado(true)
+  }
+  
+  const reservar = () => setReservado(true)
   // Se hace el llamado directo a useEffect
   // Recibe dos parametros un funcion y un valor opcional, la función se va ejecutar cada vez que mi componente se vaya a montar, actualizar, etc..
   //useEffect va a servir para traer información 
   //ejemplo traer datos de un backend desde bd mediante api
   useEffect(() =>{
     //el contenido de esta funcion o la funcion como tal se va ejecutar cada vez que mi componente necesite ser renderizado nuevamente
-    console.log('Bienvenido',Date.now())
-  })
+    //Desventaja si se quiere ejecutar alguna funcion por una vez no se podria
+    // el [] recibe los valores del estado que pueden ir cambiando 
+    //ose en useEffect la funcion se va a ejecutar si un valor del array se modifica 
+    console.log('Estamos por iniciar el componente',Date.now())
+  },[])
     
     
   
@@ -35,15 +43,24 @@ const Cupcake = ({foto,color,sabor}) => {
       <p className="titulo2">{`Sabor: ${sabor}`}</p>
       <p>
         <b>Estado: </b>
+        {reservado ? "Reservado" : "Libre"}
+      </p>
+     
+         {!reservado && (
+        <button id="botonVender" onClick={reservar} className="botonVender">
+         Reservar
+        </button>
+      )}
+     <p>
+        <b>Estado: </b>
         {vendido ? "Vendido" : "A la venta"}
       </p>
-      <p>
+     
          {!vendido && (
         <button id="botonVender" onClick={vender} className="botonVender">
           Vender
         </button>
       )}
-      </p>
      
     </div>
   );
