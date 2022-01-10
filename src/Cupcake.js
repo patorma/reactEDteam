@@ -1,4 +1,4 @@
-import { useState, useEffect,useRef } from "react";
+import { useState, useRef } from "react";
 import './Cupcake.css'
 
 const Cupcake = ({foto,color,sabor}) => {
@@ -15,6 +15,8 @@ const Cupcake = ({foto,color,sabor}) => {
   const vender = () => {
     setVendido(true)
     setReservado(true)
+    const elemento = fotoCupcake.current//se observa el valor de fotoCupcake
+    elemento.classList.add("vendido")
   }
   
   const reservar = () => setReservado(true)
@@ -22,30 +24,34 @@ const Cupcake = ({foto,color,sabor}) => {
   // Recibe dos parametros un funcion y un valor opcional, la función se va ejecutar cada vez que mi componente se vaya a montar, actualizar, etc..
   //useEffect va a servir para traer información 
   //ejemplo traer datos de un backend desde bd mediante api
-  useEffect(() =>{
+ // useEffect(() =>{
     //el contenido de esta funcion o la funcion como tal se va ejecutar cada vez que mi componente necesite ser renderizado nuevamente
     //Desventaja si se quiere ejecutar alguna funcion por una vez no se podria
     // el [] recibe los valores del estado que pueden ir cambiando 
     //ose en useEffect la funcion se va a ejecutar si un valor del array se modifica 
-    const elemento = fotoCupcake.current//se observa el valor de fotoCupcake
-    if(reservado){
-      elemento.classList.add("vendido")
-    }
-  },[reservado])
+
+  //},[reservado])  al usar useRef en vender se deja de usar useEffect
     
     
   
   return (
     <div className="cupcake" id="test">
-      {/* {color === "azul" ? (
-        <img src={foto} alt="azul" className="cake" />
-      ) : (
-        <img src={foto} alt="rosa" className="cakeRose" />
-      )} */}
- <img ref={fotoCupcake} src={foto} alt="cake" className="cake" />
-      <h2 className="titulo">{color}</h2>
+    
+      {color === "azul" ? (
+        <>
+        <img ref={fotoCupcake} src={foto} alt="cake" className="cake" />
+        <h2 className="titulo">{color}</h2>
+        <p className="titulo2">{`Sabor: ${sabor}`}</p>
+        </>
 
-      <p className="titulo2">{`Sabor: ${sabor}`}</p>
+      ) : (
+        <>
+        <img ref={fotoCupcake} src={foto} alt="cake" className="cakeRose" />
+        <h2 className="titulo">{color}</h2>
+        <p className="titulo2">{`Sabor: ${sabor}`}</p>
+        </>
+      )}
+
       <p>
         <b>Estado: </b>
         {reservado ? "Reservado" : "Libre"}
@@ -66,7 +72,7 @@ const Cupcake = ({foto,color,sabor}) => {
           Vender
         </button>
       )}
-     
+   
     </div>
   );
 };
