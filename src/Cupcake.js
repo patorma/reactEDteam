@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect,useRef } from "react";
 import './Cupcake.css'
 
 const Cupcake = ({foto,color,sabor}) => {
@@ -8,6 +8,8 @@ const Cupcake = ({foto,color,sabor}) => {
   //  useState recibe como parametro el valor inicial o por defecto de mi componente
   const [vendido,setVendido] =  useState(false)
   const [reservado,setReservado] =  useState(false)
+
+  const fotoCupcake = useRef()
   // componente sin estado stateless
   //recibe el nuevo valor que tendra vendido
   const vender = () => {
@@ -25,8 +27,11 @@ const Cupcake = ({foto,color,sabor}) => {
     //Desventaja si se quiere ejecutar alguna funcion por una vez no se podria
     // el [] recibe los valores del estado que pueden ir cambiando 
     //ose en useEffect la funcion se va a ejecutar si un valor del array se modifica 
-    console.log('Estamos por iniciar el componente',Date.now())
-  },[])
+    const elemento = fotoCupcake.current//se observa el valor de fotoCupcake
+    if(reservado){
+      elemento.classList.add("vendido")
+    }
+  },[reservado])
     
     
   
@@ -37,7 +42,7 @@ const Cupcake = ({foto,color,sabor}) => {
       ) : (
         <img src={foto} alt="rosa" className="cakeRose" />
       )} */}
- <img src={foto} alt="cake" className="cake" />
+ <img ref={fotoCupcake} src={foto} alt="cake" className="cake" />
       <h2 className="titulo">{color}</h2>
 
       <p className="titulo2">{`Sabor: ${sabor}`}</p>

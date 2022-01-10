@@ -24,6 +24,10 @@
  
 }
 
+.vendido{
+    filter: grayscale(1);
+}
+
  /* .botonVender{
     margin-top: 10px;
  
